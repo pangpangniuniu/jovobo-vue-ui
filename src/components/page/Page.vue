@@ -48,6 +48,7 @@
 </style>
 <script>
   export default {
+    name: 'ui-page',
     props: ['curPage', 'totalCount', 'totalPage', 'pageData'],
     data () {
       return {

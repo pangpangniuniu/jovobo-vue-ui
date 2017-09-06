@@ -16,6 +16,7 @@
 </style>
 <script>
   export default {
+    name: 'ui-search',
     props: ['searchList'],
     data () {
       return {

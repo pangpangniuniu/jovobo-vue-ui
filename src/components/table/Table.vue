@@ -39,7 +39,7 @@
 </style>
 <script>
   export default{
-    name: 'table',
+    name: 'ui-table',
     props: ['needBorder', 'needCheck', 'needOperate', 'operateList', 'tableHead', 'tableData'],
     data () {
       return {
