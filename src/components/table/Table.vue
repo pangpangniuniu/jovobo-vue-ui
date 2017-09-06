@@ -34,7 +34,8 @@
   </div>
 </template>
 <style lang="less" scoped>
-  @import "../../../static/style/components/table.less";
+  @import "../../style/basic/color.less";
+  @import "../../style/components/table.less";
 </style>
 <script>
   export default{

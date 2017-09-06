@@ -43,7 +43,8 @@
   </div>
 </template>
 <style lang="less" scoped>
-  @import "../../../static/style/components/page.less";
+  @import "../../style/basic/color.less";
+  @import "../../style/components/page.less";
 </style>
 <script>
   export default {
