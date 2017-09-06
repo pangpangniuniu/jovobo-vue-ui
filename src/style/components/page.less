@@ -1,0 +1,35 @@
+@import '../../../static/style/basis/color.less';
+.page-all{
+	height:30px;
+	background-color:@bg_color_1;
+	>ul{
+		height:100%;
+		>li{
+			display:inline-block;
+			width:30px;
+			height:100%;
+			line-height:30px;
+			text-align:center;
+			font-size:14px;
+			float:right;
+			border-radius: 25px;
+			cursor: pointer;
+			transition:all .2s ease;
+			margin:0 5px;
+			-webkit-user-select:none;
+		}
+		>li:hover{
+			background-color:@bg_color_11;
+		}
+		.all-num{
+			width:auto;
+		}
+		.first-page,.last-page{
+			width:70px;
+		}
+		.cur-page{
+			background-color:@bg_color_10;
+			color:@font_color_1;
+		}
+	}
+}
