@@ -58,7 +58,7 @@
     },
     methods: {
       init () {
-        console.log('初始化了')
+        console.log('开始初始化了')
         let father = ''
         if (this.curRouter.name) {
           father = this.curRouter.name.split('-')[0]
