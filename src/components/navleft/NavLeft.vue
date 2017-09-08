@@ -32,7 +32,8 @@
   </div>
 </template>
 <style lang="less" scoped>
-  @import "../../static/style/nav/nav-left.less";
+  @import "../../style/basic/color.less";
+  @import "../../style/components/navleft.less";
 </style>
 <script>
   export default {
