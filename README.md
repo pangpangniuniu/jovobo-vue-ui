@@ -16,8 +16,8 @@ Vue.use(jovoboVueUi)
 
 ```
 1、弹框组件
-	<ui-alert
- 		v-if="alertManager.show" 
+  <ui-alert
+     v-if="alertManager.show" 
     :type="alertManager.type"
     :title="alertManager.title">
   </ui-alert>
@@ -52,7 +52,7 @@ Vue.use(jovoboVueUi)
 
 ```
 2、对话框组件
-	<ui-dialog
+  <ui-dialog
     v-if="dialogManager.show" 
     :title="dialogManager.title" 
     @chooseYes="chooseYes" 
@@ -96,24 +96,24 @@ Vue.use(jovoboVueUi)
     @getPage="getPage">
   </ui-page>
   data () {
-	  return {
-	  	pageData: {
+    return {
+      pageData: {
         curPage: 1,
         totalCount: 0,
         totalPage: 0
       }
-  	}
+    }
   },
   methods: {
-  	getPage (page) {
-  		// 跳转到指定页面
-  	}
+    getPage (page) {
+      // 跳转到指定页面
+    }
   }
 ```
 
 ```
 4、表格组件
-	<ui-table 
+  <ui-table 
     :needBorder="tableData.needBorder"
     :needCheck="tableData.needCheck"
     :needOperate="tableData.needOperate"
@@ -122,9 +122,9 @@ Vue.use(jovoboVueUi)
     :tableData="tableData.dataList"
     @operate="operate">
   </ui-table>
-	data () {
-	  return {
-	  	needBorder: false, // 是否需要边框
+  data () {
+    return {
+      needBorder: false, // 是否需要边框
       needCheck: true, // 是否需要左侧选择操作
       needOperate: true, // 是否需要最后的显示详情、修改、删除操作
       operateList: {
@@ -147,22 +147,22 @@ Vue.use(jovoboVueUi)
         width: '20%'
       },
       dataList: [
-				['123', '2017-02-10', '小张'],
-				['124', '2017-02-11', '小王'],
-				['125', '2017-02-12', '小李']
+        ['123', '2017-02-10', '小张'],
+        ['124', '2017-02-11', '小王'],
+        ['125', '2017-02-12', '小李']
       ]
-  	}
+    }
   },
   methods: {
-  	operate (data) {
-  		console.log(data)
+    operate (data) {
+      console.log(data)
     }
   }
 ```
 
 ```
 5、搜索框组件——————正在完善……
-	<ui-search 
+  <ui-search 
     :searchList="searchList"
     @search="search">
   </ui-search>
@@ -170,12 +170,12 @@ Vue.use(jovoboVueUi)
 
 ```
 6、左侧导航组件
-	<ui-navleft 
-		:navData="navData">
-	</ui-navleft>
-	data () {
-	  return {
-	  	navData: [{
+  <ui-navleft 
+    :navData="navData">
+  </ui-navleft>
+  data () {
+    return {
+      navData: [{
         title: '订单管理',
         name: 'order',
         icon: '#icon-pinglun',
@@ -197,47 +197,47 @@ Vue.use(jovoboVueUi)
         showAll: false,
         icon: '#icon-pinglun'
       }]
-		}
-	}
-	要结合vue-router使用，vue-router中的配置
-	const routes = [
-		{
-	    path: '/order',
-	    name: 'order',
-	    meta: {title: '订单'},
-	    component: Order,
-	    children: [{
-	      path: 'list/:status',
-	      name: 'order-list',
-	      meta: {title: '订单列表'},
-	      component: OrderList
-	    }, {
-	      path: 'detail/:id',
-	      name: 'order-detail',
-	      meta: {title: '订单详情'},
-	      component: OrderDetail
-	    }]
-	  },
-	  {
-	    path: '/goods',
-	    name: 'goods',
-	    component: Goods,
-	    children: [{
-	      path: 'list',
-	      name: 'goods-list',
-	      meta: {title: '商品列表'},
-	      component: GoodsList
-	    }, {
-	      path: 'addsort',
-	      name: 'goods-addsort',
-	      meta: {title: '添加商品分类'},
-	      component: AddSort
-	    }, {
-	      path: 'addgoods',
-	      name: 'goods-addgoods',
-	      meta: {title: '添加商品'},
-	      component: AddGoods
-	    }]
-	  }
-	]
+    }
+  }
+  要结合vue-router使用，vue-router中的配置
+  const routes = [
+    {
+      path: '/order',
+      name: 'order',
+      meta: {title: '订单'},
+      component: Order,
+      children: [{
+        path: 'list/:status',
+        name: 'order-list',
+        meta: {title: '订单列表'},
+        component: OrderList
+      }, {
+        path: 'detail/:id',
+        name: 'order-detail',
+        meta: {title: '订单详情'},
+        component: OrderDetail
+      }]
+    },
+    {
+      path: '/goods',
+      name: 'goods',
+      component: Goods,
+      children: [{
+        path: 'list',
+        name: 'goods-list',
+        meta: {title: '商品列表'},
+        component: GoodsList
+      }, {
+        path: 'addsort',
+        name: 'goods-addsort',
+        meta: {title: '添加商品分类'},
+        component: AddSort
+      }, {
+        path: 'addgoods',
+        name: 'goods-addgoods',
+        meta: {title: '添加商品'},
+        component: AddGoods
+      }]
+    }
+  ]
 
