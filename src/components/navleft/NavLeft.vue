@@ -5,9 +5,12 @@
         <div class="father">
           <p class="first-level" v-if="curRouter.name" :class="[curRouter.name.split('-')[0]===father.name?'father-check':'']" @click="clickFather(father,fatherIndex)">
             <span class="first-icon">
-              <svg aria-hidden="true">
+              <svg aria-hidden="true" v-if="father.icon.indexOf('#')===0">
                 <use :xlink:href="''+father.icon+''"></use>
               </svg>
+              <span v-if="father.icon.indexOf('&')===0" class="unicode">
+                <slot :name="father.title"></slot>
+              </span>
             </span>
             <span v-if="father.title">
               {{father.title}}
