@@ -12,7 +12,7 @@
         <th v-if="needOperate" width="5%">操作</th>
       </thead>
       <tbody>
-        <tr v-for="(item1,index1) in tableData">
+        <tr v-for="(item1,index1) in tableData" @click="getIndex(index1)">
           <td v-if="needCheck" class="check">
             <label class="choose">
               <input type="checkbox" @click="checkItem()">
@@ -81,6 +81,9 @@
           index: index
         }
         this.$emit('operate', item)
+      },
+      getIndex (index) {
+        this.$emit('getIndex', index)
       },
       checkAll () {},
       checkItem () {}

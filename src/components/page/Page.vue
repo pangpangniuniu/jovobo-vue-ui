@@ -32,7 +32,7 @@
       <li v-if="childCurPage>3 && totalPage>0" @click="getAssign(childCurPage-3)">
         {{childCurPage-3}}
       </li>
-      <li v-if="totalPage>0" @click="getAssign(1)">
+      <li v-if="totalPage>1 && childCurPage>1" @click="getAssign(1)">
         首页
       </li>
       </li>
@@ -58,7 +58,7 @@
     mounted () {},
     watch: {
       curPage: function (newVal, oldVal) {
-        if (newVal.toString() === '1') {
+        if (newVal !== undefined && newVal.toString() === '1') {
           this.childCurPage = 1
         }
       }
