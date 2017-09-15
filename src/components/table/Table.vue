@@ -26,11 +26,9 @@
             <span v-if="operateList.child[2]" @click="toDel(index1)"  class="del">删除</span>
           </td>
         </tr>
-        <tr>
-          <td v-if="tableData.length===0" :colspan="colspan" class="no-data">未查到数据</td>
-        </tr>
       </tbody>
     </table>
+    <p v-if="tableData.length===0" class="no-data">未查到数据</p>
   </div>
 </template>
 <style lang="less" scoped>
@@ -43,22 +41,10 @@
     props: ['needBorder', 'needCheck', 'needOperate', 'operateList', 'tableHead', 'tableData'],
     data () {
       return {
-        isCheckAll: false,
-        colspan: this.tableHead.length
+        isCheckAll: false
       }
     },
-    mounted () {
-      if (this.needCheck) {
-        this.colspan ++
-      }
-      if (this.needOperate) {
-        this.colspan ++
-      }
-    },
-    watch: {
-      'tableData': function () {
-      }
-    },
+    mounted () {},
     methods: {
       // 点击"详情"
       toDetail (index) {
