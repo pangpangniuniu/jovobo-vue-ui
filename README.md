@@ -116,21 +116,16 @@ Vue.use(jovoboVueUi)
   <ui-table 
     :needBorder="tableData.needBorder"
     :needCheck="tableData.needCheck"
-    :needOperate="tableData.needOperate"
-    :operateList="tableData.operateList"
     :tableHead="tableData.headList"
     :tableData="tableData.dataList"
-    @operate="operate">
+    @getIndex="getIndex"
+    @operate="operate"
+  >
   </ui-table>
   data () {
     return {
       needBorder: false, // 是否需要边框
       needCheck: true, // 是否需要左侧选择操作
-      needOperate: true, // 是否需要最后的显示详情、修改、删除操作
-      operateList: {
-        child: [true, false, false], // 分别代表是否需要显示详情、修改、删除
-        width: '10%'
-      },
       headList: [{
         name: '订单号',
         field: 'ordersn',
@@ -147,15 +142,37 @@ Vue.use(jovoboVueUi)
         width: '20%'
       },
       dataList: [
-        ['123', '2017-02-10', '小张'],
-        ['124', '2017-02-11', '小王'],
-        ['125', '2017-02-12', '小李']
+        [{ // 每一个tr是一个数组，每一个td是一个对象
+          content: '1234', // 普通字符串只传content，color可传可不传，color的值：red/blue/gray/orange/green
+          color: 'red'
+        }, {
+          content: '2017-09-12 12:00:20'
+        }, {
+          isTagA: true, // 如果是<a>，那么isTagA必传，且为true,content传数组，color必传
+          content: [{
+            name: '查看',
+            color: 'orange'
+          }, {
+            name: '下架',
+            color: 'green'
+          }]
+        }, {
+          isTagImg: true, // 如果是<img>，那么isTagImg必传，且为true,content传图片的src
+          content: ''
+        }]
       ]
     }
   },
   methods: {
+    // 点击a标签后返回的数据
     operate (data) {
       console.log(data)
+      // {trIndex: 0, tdIndex: 1, aIndex:0}
+    },
+    // 点击tr后返回的下标
+    getIndex (data) {
+      console.log(data)
+      // 0
     }
   }
 ```
