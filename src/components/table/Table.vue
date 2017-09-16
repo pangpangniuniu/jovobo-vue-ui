@@ -20,7 +20,7 @@
             </label>
           </td>
           <td v-for="(child,childIndex) in item">
-            <span v-if="!child.isTagA&&!child.isTagImg">
+            <span v-if="!child.isTagA&&!child.isTagImg" :class="[child.color?child.color: '']">
               {{child.content}}
             </span>
             <img v-if="child.isTagImg" :src="child.content">
