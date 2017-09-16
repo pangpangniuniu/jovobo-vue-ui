@@ -9,21 +9,22 @@
           </label>
         </th>
         <th v-for="(item,index) in tableHead" :width="item.width">{{item.name}}</th>
-        <th v-if="needOperate" width="5%">操作</th>
       </thead>
       <tbody>
-        <tr v-for="(item1,index1) in tableData" @click="getIndex(index1)">
+        <tr v-for="(item,index) in tableData" @click="getIndex(index)">
+          <!-- 需要全选的按钮 -->
           <td v-if="needCheck" class="check">
             <label class="choose">
               <input type="checkbox" @click="checkItem()">
               <span class="circle"></span>
             </label>
           </td>
-          <td v-for="(item2,index2) in item1">{{item2}}</td>
-          <td v-if="needOperate" :width="operateList.width" class="operate">
-            <span v-if="operateList.child[0]" @click="toDetail(index1)" class="detail">详情</span>
-            <span v-if="operateList.child[1]" @click="toModify(index1)"  class="modify">修改</span>
-            <span v-if="operateList.child[2]" @click="toDel(index1)"  class="del">删除</span>
+          <td v-for="(child,childIndex) in item">
+            <span v-if="!child.isTagA&&!child.isTagImg">
+              {{child.content}}
+            </span>
+            <img v-if="child.isTagImg" :src="child.content">
+            <a v-if="child.isTagA" v-for="(a,aIndex) in child.content" :class="a.color" @click.stop="operate(index,childIndex,aIndex)">{{a.name}}</a>
           </td>
         </tr>
       </tbody>
@@ -38,15 +39,15 @@
 <script>
   export default{
     name: 'ui-table',
-    props: ['needBorder', 'needCheck', 'needOperate', 'operateList', 'tableHead', 'tableData'],
+    props: ['needBorder', 'needCheck', 'tableHead', 'tableData'],
     data () {
       return {
         isCheckAll: false
       }
     },
-    mounted () {},
+    mounted () {
+    },
     methods: {
-      // 点击"详情"
       toDetail (index) {
         let item = {
           type: 'detail',
@@ -70,6 +71,14 @@
       },
       getIndex (index) {
         this.$emit('getIndex', index)
+      },
+      operate (trIndex, tdIndex, aIndex) {
+        let item = {
+          trIndex: trIndex,
+          tdIndex: tdIndex,
+          aIndex: aIndex
+        }
+        this.$emit('operate', item)
       },
       checkAll () {},
       checkItem () {}

@@ -1,8 +1,6 @@
-
 .table-all{
 	width:100%;
 	height:auto;
-	// box-shadow: 0 0 5px @bg_color_6;
 	>table{
 		width:100%;
 		height:auto;
@@ -22,16 +20,49 @@
 		}
 		tbody{
 			tr{
+				transition:all .2s ease;
 				td{
 					height:45px;
 					line-height:45px;
 					font-size: 12px;
 					text-align: left;
 					border-bottom: 1px solid @border_color_4;
+					position:relative;
 					.operate{
 						display:inline-block;
 						margin: 0 5px;
 						cursor:pointer;
+					}
+					img{
+						height:40px;
+						width:auto;
+						position:absolute;
+					  top:0;
+					  bottom:0;
+					  margin:auto;
+					}
+					a{
+						display:inline-block;
+						width:40px;
+						text-align:center;
+					}
+					.red{
+						color:@font_color_14;
+					}
+					.green{
+						color:@font_color_15;
+					}
+					.default{
+						color:@font_color_12;
+					}
+					.gray{
+						color:@font_color_10;
+					}
+					.blue{
+						color:@font_color_3;
+					}
+					.orange{
+						color:@font_color_16;
 					}
 				}
 				td:nth-child(1){
@@ -53,6 +84,10 @@
 						color:@font_color_7;
 					}
 				}
+				
+			}
+			tr:hover{
+				background-color:@bg_color_20;
 			}
 		}
 	}
