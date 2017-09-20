@@ -54,27 +54,6 @@
     mounted () {
     },
     methods: {
-      toDetail (index) {
-        let item = {
-          type: 'detail',
-          index: index
-        }
-        this.$emit('operate', item)
-      },
-      toModify (index) {
-        let item = {
-          type: 'modify',
-          index: index
-        }
-        this.$emit('operate', item)
-      },
-      toDel (index) {
-        let item = {
-          type: 'del',
-          index: index
-        }
-        this.$emit('operate', item)
-      },
       getIndex (index) {
         this.$emit('getIndex', index)
       },

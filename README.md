@@ -113,17 +113,20 @@ Vue.use(jovoboVueUi)
 
 ```
 4、表格组件
-  <ui-table 
-    :needBorder="tableData.needBorder"
-    :needCheck="tableData.needCheck"
-    :tableHead="tableData.headList"
-    :tableData="tableData.dataList"
+   <ui-table 
+    :update="update"
+    :needBorder="needBorder"
+    :needCheck="needCheck"
+    :tableHead="headList"
+    :tableData="dataList"
     @getIndex="getIndex"
     @operate="operate"
+    @checkedIndex="checkedIndex"
   >
   </ui-table>
   data () {
     return {
+      update: 0 // loading，初始值为0，一请求新的数据，设置为true，请求数据结束，设置为false
       needBorder: false, // 是否需要边框
       needCheck: true, // 是否需要左侧选择操作
       headList: [{
@@ -173,6 +176,11 @@ Vue.use(jovoboVueUi)
     getIndex (data) {
       console.log(data)
       // 0
+    },
+    // 点击选择框后返回的下标集合
+    getIndex (data) {
+      console.log(data)
+      // ['0','2','7']
     }
   }
 ```
