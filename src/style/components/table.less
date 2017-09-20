@@ -91,6 +91,15 @@
 			}
 		}
 	}
+	.loading{
+		padding-top: 10px;
+		height:40px;
+		width:auto;
+		position:absolute;
+		left:0;
+		right:0;
+		margin:auto;
+	}
 	.no-data{
 		width:100%;
 		height:40px;
@@ -103,6 +112,7 @@
 			display:none;
 		}
 		.circle{
+			cursor:pointer;
 			position:absolute;
 			display:block;
 			width:16px;
@@ -116,12 +126,19 @@
 			margin: auto;
 			cursor:pointer;
 		}
-		input:checked{
-      +.circle{
-        color:@font_color_1;
-        background:@font_color_3;
-        border: 1px solid @border_color_3;
-      }
+    .is-check-all,.is-checked{
+      background:@font_color_3;
+      border: 1px solid @border_color_3;
+    }
+    .tick{
+    	display:block;
+    	text-indent: 0;
+    	width:16px;
+			height:16px;
+			line-height:16px;
+			color:@font_color_1;
+			text-align:center;
+			user-select: none;
     }
 	}
 	.has-border{
