@@ -28,6 +28,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+　　　　test: /\.(png|jpg|gif)$/,
+　　　　loader: 'url-loader?limit=999999'
+　　　},
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {

@@ -7,6 +7,7 @@ import uiSearch from './components/Search'
 import uiTable from './components/Table'
 import uiNavLeft from './components/NavLeft'
 import './style/basic/clear.css'
+import './style/basic/effect.css'
 
 const jovoVueUI = {
   uiAlert,
