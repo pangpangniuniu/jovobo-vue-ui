@@ -28,7 +28,7 @@
 <script>
   import Tree from '../tree/Tree.vue'
   export default {
-    name: 'ui-treeselect',
+    name: 'ui-tree-select',
     // selectedOption: {value: ''}
     props: ['title', 'treeData', 'selectedOption'],
     components: {

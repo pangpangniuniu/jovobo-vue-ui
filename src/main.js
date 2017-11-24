@@ -6,6 +6,7 @@ import uiDialog from './components/Dialog'
 import uiPage from './components/Page'
 import uiInput from './components/Input'
 import uiSelect from './components/Select'
+import uiTree from './components/Tree'
 import uiTreeSelect from './components/TreeSelect'
 import uiTable from './components/Table'
 import uiNavLeft from './components/NavLeft'
@@ -19,6 +20,7 @@ const jovoVueUI = {
   uiPage,
   uiInput,
   uiSelect,
+  uiTree,
   uiTreeSelect,
   uiTable,
   uiNavLeft
@@ -30,6 +32,7 @@ jovoVueUI.install = function (Vue, options) {
   Vue.component(uiPage.name, uiPage)
   Vue.component(uiInput.name, uiInput)
   Vue.component(uiSelect.name, uiSelect)
+  Vue.component(uiTree.name, uiTree)
   Vue.component(uiTreeSelect.name, uiTreeSelect)
   Vue.component(uiTable.name, uiTable)
   Vue.component(uiNavLeft.name, uiNavLeft)
