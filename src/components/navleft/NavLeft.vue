@@ -1,7 +1,7 @@
 <template>
   <div class="left-all">
-    <ul>
-      <li v-for="(father,fatherIndex) in navData">
+    <transition-group name="list-complete" tag="ul" v-if="navData.length>0">
+      <li v-for="(father,fatherIndex) in navData" v-bind:key="father.title" class="list-complete-item">
         <div class="father">
           <p class="first-level" v-if="curRouter.name" :class="[curRouter.name.split('-')[0]===father.name?'father-check':'']" @click="clickFather(father,fatherIndex)">
             <span class="first-icon">
@@ -16,22 +16,22 @@
               {{father.title}}
             </span>
             <span class="first-arrow">
-              <svg aria-hidden="true" :class="{'check':father.showAll}">
+              <svg aria-hidden="true" :class="[father.showAll?'trans': 'no-trans']">
                 <use xlink:href="#icon-xuanxiangjiantouzhankai-copy"></use>
               </svg>
             </span>
           </p>
-          <ul v-if="father.child&&father.child.length>0&&father.showAll">
-            <li v-for="(child,childIndex) in father.child">
+          <transition-group name="list-complete" tag="ul" v-if="father.child&&father.child.length>0&&father.showAll">
+            <li v-for="(child,childIndex) in father.child" v-bind:key="father.title" class="list-complete-item">
               <router-link :to="child.href">
                 <span></span>
                 <p @click="clickChild(fatherIndex, child, childIndex)">{{child.title}}</p>
               </router-link>
             </li>
-          </ul>
+          </transition-group>
         </div>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 <style lang="less" scoped>
@@ -48,10 +48,15 @@
         curRouter: {}
       }
     },
+    mounted () {
+      if (this.$route.name !== null) {
+        this.curRouter = this.$route
+        this.init()
+      }
+    },
     watch: {
       '$route': function () {
         if (!this.getRoute) {
-          this.getRoute = true
           this.curRouter = this.$route
           this.init()
         } else {
@@ -61,7 +66,8 @@
     },
     methods: {
       init () {
-        console.log('开始初始化了')
+        console.log('初始化左侧导航成功')
+        this.getRoute = true
         let father = ''
         if (this.curRouter.name) {
           father = this.curRouter.name.split('-')[0]
@@ -102,7 +108,6 @@
       },
       // 点击子级目录处理check，给last赋值
       clickChild (fatherIndex, child, childIndex) {
-        console.log('fatherIndex', fatherIndex)
         for (let i = 0; i < this.navData.length; i++) {
           if (i !== fatherIndex) {
             this.navData[i].showAll = false

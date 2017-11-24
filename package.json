@@ -1,7 +1,7 @@
 {
   "name": "jovobo-vue-ui",
   "description": "江小白前端vue项目公共组件",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "jovo",
   "license": "MIT",
   "main": "dist/jovo-vue-ui.js",
