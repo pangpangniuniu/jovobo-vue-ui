@@ -54,7 +54,7 @@
     <li>
       <p class="title">树状列表组件</p>
       <ui-tree-select
-        style="width:273px;"
+        style="width:273px;z-index:999;"
         :treeData="treeData"
         :selected-option="selectedOption"
         @change="selectTreeData">
@@ -168,7 +168,7 @@
           value: '测试三部'
         },
         tableData: {
-          update: false,
+          update: 0,
           needBorder: false,
           needCheck: false,
           // 要传给子组件的表格字段值
