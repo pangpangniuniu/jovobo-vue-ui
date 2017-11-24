@@ -58,7 +58,7 @@
     mounted () {},
     watch: {
       curPage: function (newVal, oldVal) {
-        if (newVal !== undefined && newVal.toString() === '1') {
+        if (newVal !== undefined && newVal !== null && newVal.toString() === '1') {
           this.childCurPage = 1
         }
       }

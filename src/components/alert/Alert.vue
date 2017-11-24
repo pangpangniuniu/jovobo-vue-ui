@@ -8,6 +8,9 @@
     </div>
   </transition>
 </template>
+<style lang="less" scoped>
+  @import "../../style/components/alert.less";
+</style>
 <script>
   export default {
     name: 'ui-alert',
@@ -39,6 +42,3 @@
     }
   }
 </script>
-<style lang="less" scoped>
-  @import "../../style/components/alert.less";
-</style>

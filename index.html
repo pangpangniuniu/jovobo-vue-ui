@@ -6,27 +6,10 @@
   </head>
   <body>
     <div id="app"></div>
-    <ui-alert
-      v-if="alertManager.show" 
-      :type="alertManager.type"
-      :title="alertManager.title"
-    ></ui-alert>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script src="./dist/jovo-vue-ui.js"></script>
+    <!-- <script src="./dist/build.js"></script> -->
   </body>
   <script>
-  new Vue({
-    el: '#app',
-    data() {
-      return {
-        alertManager: {
-          show: true, // 是否显示
-          type: 'success', // 弹框的类型，包括success(成功，title为黑色)和fail(失败，title为红色)
-          title: '' // 弹框的标题
-        }
-      }
-    },
-    methods: {}
-  })
 </script>
 </html>

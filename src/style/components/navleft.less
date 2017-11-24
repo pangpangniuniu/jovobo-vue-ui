@@ -9,6 +9,7 @@
 	width:100%;
 	>ul{
 		>li{
+			background-color:@bg_color_5;
 			.father{
 				color:@font_color_4;
 				.first-level{
@@ -56,6 +57,14 @@
 							position:relative;
 							top:3px;
 						}
+						.trans{
+				      transform:rotate(90deg);
+				      transition: transform .3s;
+				    }
+				    .no-trans{
+				      transform:rotate(0deg);
+				      transition: transform .3s;
+				    }
 					}
 				}
 				.father-check{
@@ -104,4 +113,16 @@
 		height:100%;
 		background-color:@bg_color_7!important;
 	}
+}
+.list-complete-item {
+  transition: all .5s;
+  display: block;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
 }

@@ -1,37 +1,44 @@
 <template>
   <div class="table-all">
-    <table :class="[needBorder?'has-border': '']">
-      <thead>
-        <th v-if="needCheck" width="5%" class="check">
+    <div :class="[needBorder?'has-border': '']" class="table">
+      <ul class="head">
+        <li v-if="needCheck" class="check">
           <label class="choose">
             <input type="checkbox" @click="checkAll()" v-model="isCheckAll">
             <span class="circle" :class="[isCheckAll?'is-check-all':'']"></span>
             <span v-if="isCheckAll" class="tick pos-abs">✔</span>
           </label>
-        </th>
-        <th v-for="(item,index) in tableHead" :width="item.width">{{item.name}}</th>
-      </thead>
-      <tbody>
-        <tr v-for="(item,index) in tableData" @click="getIndex(index)">
+        </li>
+        <li v-for="(item,index) in tableHead" :style="{width:item.width}">{{item.name}}</li>
+      </ul>
+      <ul class="body scroll-bar">
+        <li v-for="(item,index) in tableData" @dblclick="getIndex(index)">
           <!-- 需要全选的按钮 -->
-          <td v-if="needCheck" class="check">
+          <div v-if="needCheck" class="check">
             <label class="choose">
               <input type="checkbox" @click="checkItem(item)">
               <span class="circle" :class="[item.check?'is-checked':'']"></span>
               <span v-if="item.check" class="tick pos-abs">✔</span>
             </label>
-          </td>
-          <td v-for="(child,childIndex) in item">
+          </div>
+          <div v-for="(child,childIndex) in item"  :style="{width:tableHead[childIndex].width}">
             <span v-if="!child.isTagA&&!child.isTagImg" :class="[child.color?child.color: '']">
               {{child.content}}
             </span>
             <img v-if="child.isTagImg" :src="child.content">
             <a v-if="child.isTagA" v-for="(a,aIndex) in child.content" :class="a.color" @click.stop="operate(index,childIndex,aIndex)">{{a.name}}</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <img v-if="update===0||update" class="loading" src="../../assets/loading.gif">
+            <div v-if="child.hover" class="hover">
+              <p :class="child.hover[0].color">{{child.hover[0].content}}</p>
+              <p :class="child.hover[1].color">{{child.hover[1].content}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <p v-if="update===0||update" class="loading">
+      <img :src="loadingImg">
+      <span>加载中……</span>
+    </p>
     <p v-if="!update&&tableData.length===0" class="no-data">未查到数据</p>
   </div>
 </template>
@@ -48,7 +55,8 @@
         isCheckAll: false,
         checkedNum: 0,
         checkedIndex: [],
-        checkedAll: false
+        checkedAll: false,
+        loadingImg: './../../src/assets/loading.gif'
       }
     },
     mounted () {

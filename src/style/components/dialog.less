@@ -1,89 +1,89 @@
 .dialog-all{
-	position:fixed;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:9;
-	.dialog-wraper{
-		width:400px;
-		height:200px;
-		background:#fff;
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		bottom:0;
-		margin:auto;
-		text-align:center;
-		font-size:14px;
-		box-shadow:0px 0px 20px #555;
-		.close-dialog{
-	    height:30px;
-	    height:30px;
-	    width:100%;
-	    background:#4499ee;
-	    z-index:9;
-	    position:relative;
-	    i{
-	      position:absolute;
-	      right:0;
-	      width:30px;
-	      height:30px;
-	      font-size: 20px;
-	      cursor:pointer;
-	      color:#fff;
-	    }
-	    i::before{
-	      position:absolute;
-	      left:6px;
-	      top:4px;
-	    }
-	    i:hover{
-	      background:#6db2f8;
-	    }
-	  }
-	  .title{
-	  	height:100px;
-	  	line-height:100px;
-	  }
-	  .btns{
-	  	width:70%;
-	  	height:30px;
-	  	margin-left:15%;
-			span{
-				display: block;
-				border-radius: 20px;
-				width:70px;
-				height:100%;
-				line-height:28px;
-				cursor:pointer;
-			}
-			span:active{
-				transform: scale(0.9,0.9);
-			}
-			.yes{
-				float: left;
-				background:#4499ee;
-				color:#fff;
-			}
-			.yes:hover{
-				background:#fff;
-        box-shadow:0 0 10px #4698ea;
-        color:#4499ee;
-			}
-			.no{
-				float: right;
-				background:#ddd;
-				color:#000;
-			}
-			.no:hover{
-				box-shadow:0 0 10px #999;
-				background:#fff;
-				color:#999;
-			}
-	  }
-	}
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:9;
+  .dialog-wraper{
+    width:400px;
+    height:200px;
+    background:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    text-align:center;
+    font-size:14px;
+    box-shadow:0px 0px 20px #555;
+    .close-dialog{
+      height:30px;
+      height:30px;
+      width:100%;
+      background:#42475b;
+      z-index:9;
+      position:relative;
+      i{
+        position:absolute;
+        right:0;
+        width:30px;
+        height:30px;
+        font-size: 20px;
+        cursor:pointer;
+        color:#fff;
+      }
+      i::before{
+        position:absolute;
+        left:6px;
+        top:4px;
+      }
+      i:hover{
+        background:#6db2f8;
+      }
+    }
+    .title{
+      height:100px;
+      line-height:100px;
+    }
+    .btns{
+      width:70%;
+      height:30px;
+      margin-left:15%;
+      span{
+        display: block;
+        border-radius: 20px;
+        width:70px;
+        height:100%;
+        line-height:28px;
+        cursor:pointer;
+      }
+      span:active{
+        transform: scale(0.9,0.9);
+      }
+      .yes{
+        float: left;
+        background:#42475b;
+        color:#ddd;
+      }
+      .yes:hover{
+        background:#fff;
+        box-shadow:0 0 10px #42475b;
+        color:#42475b;
+      }
+      .no{
+        float: right;
+        background:#ddd;
+        color:#000;
+      }
+      .no:hover{
+        box-shadow:0 0 10px #999;
+        background:#fff;
+        color:#999;
+      }
+    }
+  }
 }
 .dialog-enter-active,.dialog-leave-active{
   transition: all .4s

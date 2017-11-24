@@ -1,0 +1,48 @@
+.input-all{
+  display:inline-block;
+  // margin-right: 10px;
+  position:relative;
+  .title{
+    font-size: 12px;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    color:@font_color_5;
+  }
+  .input{
+    height: 32px;
+    display:inline-block;
+    line-height: 32px;
+    border-radius: 2px;
+    border: 1px solid @border_color_5;
+    text-align: left;
+    text-indent:10px;
+    float:right;
+  }
+  .clear{
+    position:absolute;
+    right:5px;
+    top:8px;
+    display:block;
+    width:14px;
+    height:14px;
+    line-height:13px;
+    text-align:center;
+    text-indent:0;
+    font-size:15px;
+    border-radius:30px;
+    font-weight: 200;
+    color:@font_color_1;
+    background-color:@bg_color_17;
+    cursor:default;
+  }
+  ::-webkit-input-placeholder{
+    color:@font_color_21;
+  }
+  ::-moz-placeholder{
+    color:@font_color_21;
+  }
+  :-moz-placeholder{
+    color:@font_color_21;
+  }
+}
