@@ -10,6 +10,7 @@ ul,ol {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 table{
   border:0;

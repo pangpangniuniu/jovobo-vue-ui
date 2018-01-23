@@ -3,15 +3,19 @@
   position: relative;
   z-index: 99;
   width:100%;
-  height:35px;
+  height:100%;
   .title{
     height:32px;
     line-height:32px;
     display:inline-block;
   }
+  .select-wraper{
+
+  }
   .options-wraper{
     position: absolute;
     top:0;
+    width:100%;
     .input,.name{
       width: 100%;
       height: 32px;
@@ -23,7 +27,9 @@
       top:0;
       left:0;
       z-index:98;
-      background-color: #fff;
+    }
+    .name{
+      background-color:#fff;
     }
     .promt{
       color:@font_color_21;
@@ -49,6 +55,18 @@
     .input:hover,.name:hover{
       border:1px solid @border_color_3;
     }
+  }
+  .options{
+    position: absolute;
+    right:-1px;
+    top:32px;
+    box-shadow: 0 0 5px @border_color_9;
+    .no-data{
+      width: 100%;
+      height: 32px;
+      line-height: 32px;
+      text-indent: 10px;
+    }
     .show-options{
       animation: moveshow .3s;
     }
@@ -70,27 +88,6 @@
       to {
         transform: translateY(-30px);
         opacity:.1;}
-    }
-    .options{
-      position: absolute;
-      width:100%;
-      z-index:-999;
-      margin-top:32px;
-      background:@bg_color_8;
-      max-height:300px;
-      overflow-x:hidden;
-      overflow-y:auto;
-      .options-all{
-        width:~"calc(100% + 10px)";
-        position:relative;
-        left:-10px;
-      }
-      .no-data{
-        width: 100%;
-        height: 32px;
-        line-height: 32px;
-        text-indent: 10px;
-      }
     }
   }
 }

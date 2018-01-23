@@ -1,14 +1,11 @@
 <template>
   <div class="input-all" ref="all" id="all">
-    <!-- <span class="title" id="title" v-if="hasTitle">
-      <slot name="title">
-      </slot>
-    </span> -->
     <p v-if="title&&title.length>0" ref="title" class="title">{{title}}</p>
     <input 
       type="text" 
       class="input"
       ref="input" 
+      :disabled="disabled"
       :value="thisVal"
       @input="handleInput"
       :placeholder="placeholder"
@@ -23,7 +20,20 @@
 <script>
   export default {
     name: 'ui-input',
-    props: ['title', 'value'],
+    props: {
+      'title': {
+        type: String,
+        default: ''
+      },
+      'value': {
+        type: String,
+        default: ''
+      },
+      'disabled': {
+        type: Boolean,
+        default: false
+      }
+    },
     data () {
       return {
         placeholder: '',
@@ -44,7 +54,6 @@
     computed: {
       hasTitle: function () {
         let hasTitle
-        // console.log(this.$slots.title)
         if (this.$slots.title === undefined) {
           hasTitle = false
         } else {
@@ -53,13 +62,6 @@
         return hasTitle
       }
     },
-    // watch: {
-    //   'value': function (val, oldVal) {
-    //     console.log('监听到变化', val)
-    //     // this.thisVal = newVal
-    //     // this.$refs.input.value = newVal
-    //   }
-    // },
     watch: {
       'value': function (newVal) {
         this.thisVal = newVal

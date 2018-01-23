@@ -21,14 +21,30 @@
     </div>
   </div>
 </template>
-<style lang="less" scoped>
-  @import "../../style/basic/color.less";
-  @import "../../style/components/select.less";
-</style>
 <script>
   export default {
     name: 'ui-select',
-    props: ['title', 'options', 'selectedOption'],
+    props: {
+      'title': {
+        type: String,
+        default: ''
+      },
+      'options': {
+        type: Array,
+        default () {
+          return []
+        }
+      },
+      'selectedOption': {
+        type: Object,
+        default () {
+          return {
+            name: '',
+            value: ''
+          }
+        }
+      }
+    },
     data () {
       return {
         exportOptions: false,
@@ -114,3 +130,7 @@
     }
   }
 </script>
+<style lang="less" scoped>
+  @import "../../style/basic/color.less";
+  @import "../../style/components/select.less";
+</style>

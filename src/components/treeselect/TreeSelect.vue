@@ -8,40 +8,69 @@
         <span v-else class="promt">--请选择--</span>
         <span v-if="choosedItem.name&&choosedItem.name.length>0"class="clear-choose" @click.stop="clearChoose()">×</span>
       </p>
-      <div v-show="showOptions" class="options scroll-bar" :class="[exportOptions?'show-options':'hide-options']">
-        <tree
-          class="options-all"
-          v-show="showOptions"
-          :class="[exportOptions?'show-options':'hide-options']"
-          :treeData="treeData"
-          @selectFather="selectFather"
-          @selectItem="selectItem"
-        ></tree>
-      </div>
+    </div>
+    <div v-show="showOptions" class="options scroll-bar" :class="[exportOptions?'show-options':'hide-options']" :style="treeWidth">
+      <ui-tree
+        class="options-all"
+        :class="[exportOptions?'show-options':'hide-options']"
+        :treeData="treeData"
+        @selectFather="selectFather"
+        @selectItem="selectItem"
+      ></ui-tree>
     </div>
   </div>
 </template>
-<style lang="less" scoped>
-  @import "../../style/basic/color.less";
-  @import "../../style/components/tree-select.less";
-</style>
 <script>
-  import Tree from '../tree/Tree.vue'
   export default {
     name: 'ui-tree-select',
-    // selectedOption: {value: ''}
-    props: ['title', 'treeData', 'selectedOption'],
-    components: {
-      Tree
+    props: {
+      'title': {
+        type: String,
+        default: ''
+      },
+      'treeData': {
+        type: Object,
+        default: {
+          name: '',
+          id: 0,
+          isFolder: true,
+          showChild: false,
+          isTop: true,
+          check: false,
+          child: [
+            {
+              name: '',
+              id: 0,
+              check: false,
+              showChild: false,
+              isFolder: true,
+              child: []
+            }, {
+              name: '',
+              id: 0,
+              check: false,
+              isFolder: false
+            }
+          ]
+        }
+      },
+      'selectedOption': {
+        type: Object,
+        default () {
+          return {
+            name: '',
+            id: ''
+          }
+        }
+      }
     },
     data () {
       return {
         exportOptions: false,
         showOptions: false,
         optionsStyle: '', // options的宽度
-        choosedItem: {
-          name: this.selectedOption.value
-        }
+        choosedItem: this.selectedOption,
+        treeWidth: ''
       }
     },
     mounted () {
@@ -49,8 +78,10 @@
       if (this.title && this.title.length > 0) {
         let titleW = this.$refs.title.clientWidth
         this.optionsStyle = 'width:' + (allW - titleW - 10) + 'px; left:' + (titleW + 10) + 'px;'
+        this.treeWidth = 'width:' + (allW - titleW - 10) + 'px;'
       } else {
         this.optionsStyle = 'width:' + allW + 'px;'
+        this.treeWidth = 'width:' + allW + 'px;'
       }
       let that = this
       document.addEventListener('click', (e) => {
@@ -78,10 +109,12 @@
       },
       clearChoose () {
         this.$set(this.choosedItem, 'name', '')
+        this.choosedItem.id = ''
         this.$emit('change', this.choosedItem)
       },
       selectItem (data) {
         this.$set(this.choosedItem, 'name', data.name)
+        this.choosedItem.id = data.id
         this.$emit('change', this.choosedItem)
         this.hideOption()
       },
@@ -91,9 +124,12 @@
     },
     watch: {
       'selectedOption': function (newVal) {
-        console.log('变化了', newVal)
         this.$set(this.choosedItem, 'name', newVal.value)
       }
     }
   }
 </script>
+<style lang="less" scoped>
+  @import "../../style/basic/color.less";
+  @import "../../style/components/tree-select.less";
+</style>

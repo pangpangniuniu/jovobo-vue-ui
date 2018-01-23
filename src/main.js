@@ -8,6 +8,8 @@ import uiInput from './components/Input'
 import uiSelect from './components/Select'
 import uiTree from './components/Tree'
 import uiTreeSelect from './components/TreeSelect'
+// import uiTableBasic from './components/TableBasic'
+// import uiTableUp from './components/TableUp'
 import uiTable from './components/Table'
 import uiNavLeft from './components/NavLeft'
 
@@ -21,8 +23,10 @@ const jovoVueUI = {
   uiInput,
   uiSelect,
   uiTree,
-  uiTreeSelect,
   uiTable,
+  uiTreeSelect,
+  // uiTableBasic,
+  // uiTableUp,
   uiNavLeft
 }
 
@@ -35,6 +39,8 @@ jovoVueUI.install = function (Vue, options) {
   Vue.component(uiTree.name, uiTree)
   Vue.component(uiTreeSelect.name, uiTreeSelect)
   Vue.component(uiTable.name, uiTable)
+  // Vue.component(uiTableBasic.name, uiTableBasic)
+  // Vue.component(uiTableUp.name, uiTableUp)
   Vue.component(uiNavLeft.name, uiNavLeft)
 }
 
@@ -50,6 +56,7 @@ export default jovoVueUI
 // Vue.component('ui-dialog', uiDialog)
 // Vue.component('ui-page', uiPage)
 // Vue.component('ui-input', uiInput)
+// Vue.component('ui-tree', uiTree)
 // Vue.component('ui-select', uiSelect)
 // Vue.component('ui-tree-select', uiTreeSelect)
 // Vue.component('ui-table', uiTable)

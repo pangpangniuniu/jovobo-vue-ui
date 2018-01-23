@@ -1,11 +1,11 @@
 <template>
-  <transition name="dialog">
+  <transition name="dialog" v-if="dialogManager.show">
     <div class="dialog-all">
       <div class="dialog-wraper">
         <p class="close-dialog">
-          <i class="fa fa-times" aria-hidden="true" title="关闭" @click="no()"></i>
+          <span class="close" @click="close()">×</span>
         </p>
-        <p class="title">{{title}}</p>
+        <p class="title">{{dialogManager.title}}</p>
         <div class="btns">
           <span class="yes" @click="yes()">是</span>
           <span class="no" @click="no()">否</span>
@@ -17,13 +17,26 @@
 <script>
   export default {
     name: 'ui-dialog',
-    props: ['title'],
+    props: {
+      'dialogManager': {
+        type: Object,
+        default () {
+          return {
+            show: false,
+            title: ''
+          }
+        }
+      }
+    },
     methods: {
       yes () {
         this.$emit('chooseYes', '')
       },
       no () {
         this.$emit('chooseNo', '')
+      },
+      close () {
+        this.dialogManager.show = false
       }
     }
   }

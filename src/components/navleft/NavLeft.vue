@@ -22,7 +22,7 @@
             </span>
           </p>
           <transition-group name="list-complete" tag="ul" v-if="father.child&&father.child.length>0&&father.showAll">
-            <li v-for="(child,childIndex) in father.child" v-bind:key="father.title" class="list-complete-item">
+            <li v-for="(child,childIndex) in father.child" v-bind:key="father.title + '_' + child.title" class="list-complete-item">
               <router-link :to="child.href">
                 <span></span>
                 <p @click="clickChild(fatherIndex, child, childIndex)">{{child.title}}</p>
