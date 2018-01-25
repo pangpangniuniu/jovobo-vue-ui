@@ -11,7 +11,6 @@ npm install jovobo-vue-ui
 <h2>使用依赖</h2>
 
 import jovoboVueUi from 'jovobo-vue-ui'
-
 Vue.use(jovoboVueUi)
 
 ```
