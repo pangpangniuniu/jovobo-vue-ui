@@ -33,9 +33,7 @@ Vue.use(jovoboVueUi)
   // 以下为跑项目的时候测试用 
   这一行下面的全部解开注释
 
-```
-
-# 上线前 #
+###上线前
 
 (1) 第一步：需要修改的和本地调试的相反，并提高package.json的版本号
 
@@ -45,9 +43,7 @@ Vue.use(jovoboVueUi)
 
 (4) 第四部：npm publish
 
-```
-
-# 升级版本 #
+###升级版本
 
 npm uninstall jovobo-vue-ui@1.3.7
 
