@@ -30,10 +30,11 @@
     <li style="z-index:97;">
       <p class="title">分页组件</p>
       <ui-page
-        style="width:600px;"
+        style="width:750px;"
         :curPage="pageData.curPage"
         :totalCount="pageData.totalCount"
         :totalPage="pageData.totalPage"
+        :isJump="pageData.isJump"
         @getPage="getPage">
       </ui-page>
     </li>
@@ -146,7 +147,8 @@
         pageData: {
           curPage: 1,
           totalCount: 99,
-          totalPage: 10
+          totalPage: 10,
+          isJump: true
         },
         input: {
           title: '输入框',
@@ -456,7 +458,7 @@
 </script>
 <style lang="less" scoped>
   ul.app{
-    width:60%;
+    width:70%;
     margin-left: 20%;
     height: 100%;
     background-color: #c9dff3;

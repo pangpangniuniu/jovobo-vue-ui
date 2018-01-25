@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Apps from './Apps.vue'
 
 import uiAlert from './components/Alert'
 import uiDialog from './components/Dialog'
@@ -64,7 +64,7 @@ export default jovoVueUI
 // new Vue({
 //   el: '#app',
 //   template: '<App/>',
-//   components: { App }
+//   components: { Apps }
 // })
 
   

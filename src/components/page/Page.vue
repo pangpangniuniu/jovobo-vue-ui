@@ -2,6 +2,11 @@
   <div class="page-all">
     <ul>
       <li class="all-num">共{{totalPage}}页 / {{totalCount}}条数据</li>
+      <li class="gopage" v-if='isJump'>
+        <span @click="getfarPage(goPage)" class="go-btn">跳转至</span>
+        <input type="number" name="gopage" v-model='goPage' v-on:input="changePage()">
+        <span>页</span>
+      </li>
       <li v-if="childCurPage<totalPage && totalPage>0" @click="getNxt()">
         >
       </li>
@@ -49,13 +54,32 @@
 <script>
   export default {
     name: 'ui-page',
-    props: ['curPage', 'totalCount', 'totalPage', 'pageData'],
-    data () {
-      return {
-        childCurPage: this.curPage
+    props: {
+      'curPage': { 
+        type: Number,
+        default: 1
+      },
+      'totalCount': {
+        type: Number,
+        default: 0
+      },
+      'totalPage': {
+        type: Number,
+        default: 1
+      },
+      'isJump': {
+        type: Boolean,
+        default: false
       }
     },
-    mounted () {},
+    data () {
+      return {
+        childCurPage: this.curPage,
+        goPage: 1
+      }
+    },
+    mounted () {
+    },
     watch: {
       curPage: function (newVal, oldVal) {
         if (newVal !== undefined && newVal !== null && newVal.toString() === '1') {
@@ -75,6 +99,24 @@
       getAssign (page) {
         this.childCurPage = page
         this.$emit('getPage', this.childCurPage)
+      },
+      getfarPage (page) {
+        var page = parseInt(page)
+        if (page < 1 && this.goPage !== '') {
+          this.goPage = 1
+        } else if (page > this.totalPage) {
+          this.goPage = this.totalPage
+        } else {
+          this.childCurPage = page
+          this.$emit('getPage', this.childCurPage)
+        }
+      },
+      changePage () {
+        if (this.goPage < 1 && this.goPage !== '') {
+          this.goPage = 1
+        } else if (this.goPage > this.totalPage) {
+          this.goPage = this.totalPage
+        }
       }
     }
   }
