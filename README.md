@@ -2,15 +2,16 @@
 
 > 因涉及版权，非江小白员工不得使用。
 
-<h2>安装依赖</h2>
+> 安装依赖
 
 npm install jovobo-vue-ui
 
 ```
 
-<h2>使用依赖</h2>
+> 使用依赖
 
 import jovoboVueUi from 'jovobo-vue-ui'
+
 Vue.use(jovoboVueUi)
 
 ```
