@@ -2,13 +2,13 @@
 
 > 因涉及版权，非江小白员工不得使用。
 
-# 安装依赖 #
+<h2>安装依赖</h2>
 
 npm install jovobo-vue-ui
 
 ```
 
-# 使用依赖 #
+<h2>使用依赖</h2>
 
 import jovoboVueUi from 'jovobo-vue-ui'
 
@@ -52,3 +52,9 @@ Vue.use(jovoboVueUi)
 (4) 第四部：npm publish
 
 ```
+
+# 升级版本 #
+
+npm uninstall jovobo-vue-ui@1.3.7
+
+npm install jovobo-vue-ui@1.3.9
