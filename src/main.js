@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Apps from './Apps.vue'
+import App from './App.vue'
 
 import uiAlert from './components/Alert'
 import uiDialog from './components/Dialog'
