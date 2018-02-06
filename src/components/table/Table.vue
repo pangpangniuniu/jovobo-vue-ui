@@ -1,6 +1,6 @@
 <template>
   <div class="table-all">
-    <div class="refresh" @click="refresh()">
+    <div class="refresh" @click="refresh()" v-if="showRefresh.value">
       <img :src="refreshImg" class="pos-abs">
       <!-- <span>刷新</span> -->
     </div>
@@ -121,13 +121,17 @@
           }
         }
       },
-      update: {
+      showRefresh: {
         type: Object,
         default () {
           return {
-            value: true
+            value: false
           }
         }
+      },
+      update: {
+        type: Boolean,
+        default: false
       },
       tableHead: {
         type: Array,

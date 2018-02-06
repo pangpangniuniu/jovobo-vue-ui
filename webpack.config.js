@@ -6,9 +6,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    // filename: 'build.js',
+    filename: 'build.js',
     filename: 'jovo-vue-ui.js',
-    library: 'jovo-vue-ui',
+    // library: 'jovo-vue-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

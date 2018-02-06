@@ -2,7 +2,7 @@
   <div class="page-all">
     <ul>
       <li class="all-num">共{{totalPage}}页 / {{totalCount}}条数据</li>
-      <li class="gopage" v-if='isJump'>
+      <li class="gopage" v-if='isJump && totalPage>0'>
         <span @click="getfarPage(goPage)" class="go-btn">跳转至</span>
         <input type="number" name="gopage" v-model='goPage' v-on:input="changePage()">
         <span>页</span>
@@ -101,13 +101,13 @@
         this.$emit('getPage', this.childCurPage)
       },
       getfarPage (page) {
-        var page = parseInt(page)
-        if (page < 1 && this.goPage !== '') {
+        let pagenew = parseInt(page)
+        if (pagenew < 1 && this.goPage !== '') {
           this.goPage = 1
-        } else if (page > this.totalPage) {
+        } else if (pagenew > this.totalPage) {
           this.goPage = this.totalPage
         } else {
-          this.childCurPage = page
+          this.childCurPage = pagenew
           this.$emit('getPage', this.childCurPage)
         }
       },
