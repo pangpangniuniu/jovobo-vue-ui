@@ -37,7 +37,7 @@
         </li>
       </ul>
       <ul
-        v-if="!update.value&&tableData.length>0"
+        v-if="!update&&tableData.length>0"
         class="body" 
         :class="[autoScroll.need&&!autoScroll.containHead?'scroll-bar maxHeight': '']"
         :style="getStyle('', 'bodyself')">
@@ -87,11 +87,11 @@
         </li>
       </ul>
     </div>
-    <p v-if="update.value" class="loading">
+    <p v-if="update" class="loading">
       <img :src="loadingImg">
       <span>加载中……</span>
     </p>
-    <p v-if="!update.value&&tableData.length===0" class="no-data">未查到数据</p>
+    <p v-if="!update&&tableData.length===0" class="no-data">未查到数据</p>
   </div>
 </template>
 <style lang="less" scoped>
